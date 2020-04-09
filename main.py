@@ -1,5 +1,5 @@
-import requests
-from pprint import pprint
+from requests import get
+from job import * 
 
 class ReedAPI():
     def __init__(self, apikey, apiurl='https://www.reed.co.uk/api/1.0'):
@@ -8,18 +8,18 @@ class ReedAPI():
     
     def search(self, **kwargs):
         searchURL = self._generateURL(kwargs, self.apiurl + '/search?')
-        response = requests.get(searchURL, auth=(self.apikey, ''))
-
+        response = get(searchURL, auth=(self.apikey, ''))
+        jobs = []
+        for job in response.json()['results']:
+            jobs.append(SearchJob(job, self.apikey, self.apiurl))
 
     def _generateURL(self, kwargs, URLBase):
         count = 0
         for arg in kwargs:
-            value = str(kwargs[arg]).replace(' ', '%20').replace('True', 'true').replace('False', 'false')
+            value = str(kwargs[arg]).replace(' ', '%20').replace('True', 'true').replace('False', 'false').replace('None', 'null')
             if count == 0:
                 URLBase += arg + '=' + value
             else:
                 URLBase += '&' + arg + '=' + value
             count += 1
         return URLBase
-        
-        

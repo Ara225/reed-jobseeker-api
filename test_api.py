@@ -13,7 +13,10 @@ class Test(unittest.TestCase):
 
     def test_search_jobs(self):
         api = ReedAPI(apikey)
-        api.search(keywords='software development')
+        api.search(keywords='software development', employerId=563926)
+
+    def test_search_jobs_with_invalid_parameters(self):
+        pass
 
     def test_search_jobs_and_get_job_details(self):
         pass
