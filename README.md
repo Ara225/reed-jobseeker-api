@@ -2,17 +2,8 @@
 Small project with the goal of making a simple API wrapper from scratch for learning purposes. 
 Picked Reed pretty much randomly
 
-# Changes
-### 0.1 
-Initial commit, started implementing job searching functionality 
-
-### 0.2
-Basic function, no paging 
-
-### 0.3 
-Pretty happy with this now. Calling this the final version
-
 # Technical notes 
+N.B. Seems like there's some sort of location locking on the API - pity as my lovely tests always get a 401
 See https://www.reed.co.uk/developers/jobseeker 
 Search Results output
 {
@@ -60,3 +51,15 @@ Details endpoint outputs
     "jobDescription": null,
     "applicationCount": 0
 }
+# Changes
+### 0.1 
+Initial commit, started implementing job searching functionality 
+
+### 0.2
+Basic function, no paging 
+
+### 0.3 
+Pretty happy with this now. Calling this the final version
+
+### 0.4 
+The real final, version, some fixes to try and get the tests passing here, no such luck, seems it's an API thing
