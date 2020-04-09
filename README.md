@@ -3,12 +3,15 @@ Small project with the goal of making a simple API wrapper from scratch for lear
 Picked Reed pretty much randomly
 
 # Technical notes 
-N.B. Seems like there's some sort of location locking on the API - pity as my lovely tests always get a 401
+N.B. Seems like there's some sort of location locking on the API - pity as my lovely tests always get a 401 when running as a GitHub action
+
 See https://www.reed.co.uk/developers/jobseeker 
+
 Search Results output
 {
     "results": [
         {
+        
             "jobId": 40227781,
             "employerId": 563926,
             "employerName": "Modis",
@@ -29,6 +32,7 @@ Search Results output
 
 Details endpoint outputs
 {
+
     "employerId": 0,
     "employerName": null,
     "jobId": 0,
