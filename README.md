@@ -9,6 +9,9 @@ Initial commit, started implementing job searching functionality
 ### 0.2
 Basic function, no paging 
 
+### 0.3 
+Pretty happy with this now. Calling this the final version
+
 # Technical notes 
 See https://www.reed.co.uk/developers/jobseeker 
 Search Results output
