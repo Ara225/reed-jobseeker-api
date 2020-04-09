@@ -24,10 +24,10 @@ class Test(unittest.TestCase):
         api = ReedAPI(apikey)
         result = api.search(keywords='software development', graduate=True, pages=2)
         self.assertIsInstance(result[0], SearchJob)
-        # Hopfully the total results are always more than 200 :)
-        self.assertEqual(len(result), 200)
+        # Hopfully the total results are always more than 100 :)
+        self.assertEqual(len(result), 100)
         # Make sure pages aren't repeated 
-        self.assertNotEqual(result[0].jobId, result[101].jobId)
+        self.assertNotEqual(result[0].jobId, result[51].jobId)
 
     def test_call_validate_with_invalid_parameters(self):
         """Ensure correct handling of this error condition (contract must have a true/false value)"""
@@ -39,7 +39,7 @@ class Test(unittest.TestCase):
         """Ensure correct handling of this error condition (pages must not be zero)"""
         api = ReedAPI(apikey)
         with self.assertRaises(ValueError):
-            api.search({'keywords':'software development', 'locationName': 'London', 'pages': 0})
+            api.search(keywords='software development', locationName='London', pages=0)
 
     def test_search_jobs_and_get_job_details(self):
         """ Get jobs details, and confirm object type"""

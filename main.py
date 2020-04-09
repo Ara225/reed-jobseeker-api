@@ -51,7 +51,7 @@ class ReedAPI():
             :throw ValueError,ConnectionError:
         """
         kwargs = locals()
-        if pages == 0 or type(pages) == str:
+        if pages == 0 or pages == '0' or type(pages) == str:
             raise ValueError('The value of pages must be an int above zero or None (the default, to get all pages)')
         self._validate(kwargs)
         jobs = []
@@ -77,7 +77,7 @@ class ReedAPI():
             else:
                 raise ValueError('The value of resultsToSkip can not be divided by resultsToTake, so we can not calculate the starting page')
         else:
-            startingPage = 1
+            startingPage = 0
         
         # Generate the search URL
         searchURL = self._generateURL(kwargs, self.apiurl + '/search?')
@@ -106,7 +106,7 @@ class ReedAPI():
         """  
         count = 0
         for arg in kwargs:
-            if arg == 'pages' or kwargs[arg] == 0 or kwargs[arg] == None:
+            if arg == 'pages' or kwargs[arg] == 0 or kwargs[arg] == None or arg == 'self':
                 continue
             else:
                 value = str(kwargs[arg]).replace(' ', '%20').replace('True', 'true').replace('False', 'false').replace('None', 'null')
